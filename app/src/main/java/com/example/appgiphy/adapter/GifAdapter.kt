@@ -5,16 +5,17 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.appgiphy.R
 import com.example.appgiphy.model.Data
-import com.example.appgiphy.view.FragmentGifs
+import com.example.appgiphy.view.fragments.FragmentGifs
 import kotlinx.android.synthetic.main.gif_item.view.*
 
 class GifAdapter(private val context: Context):RecyclerView.Adapter<GifAdapter.GifViewHolder>() {
 
-    var GifDataList = emptyList<Data>()
+    private var gifDataList = emptyList<Data>()
 
     class GifViewHolder(view: View): RecyclerView.ViewHolder(view)
 
@@ -24,25 +25,31 @@ class GifAdapter(private val context: Context):RecyclerView.Adapter<GifAdapter.G
     }
 
     override fun onBindViewHolder(holder: GifViewHolder, position: Int) {
+
+        val imageViewGif = holder.itemView.findViewById<ImageView>(R.id.id_imageview_gif)
+
         Glide.with(context)
-            .load(GifDataList[position].images.original.url)
-            .into(holder.itemView.id_imageview_gif)
+            .load(gifDataList[position].images.original.url)
+            .into(imageViewGif)
+
     }
 
     override fun getItemCount(): Int {
-        return GifDataList.size
+        return gifDataList.size
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setList(list:List<Data>){
-        GifDataList = list
-        notifyDataSetChanged()
+    fun setList(list:List<Data>?){
+        if(list!=null){
+            gifDataList = list
+            notifyDataSetChanged()
+        }
     }
 
     override fun onViewAttachedToWindow(holder: GifViewHolder) {
         super.onViewAttachedToWindow(holder)
         holder.itemView.setOnClickListener {
-            FragmentGifs.clickGif(GifDataList[holder.adapterPosition])
+            FragmentGifs.clickGif(gifDataList[holder.adapterPosition])
         }
     }
 
