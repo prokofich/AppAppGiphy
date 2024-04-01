@@ -11,7 +11,6 @@ import com.bumptech.glide.Glide
 import com.example.appgiphy.R
 import com.example.appgiphy.model.Data
 import com.example.appgiphy.view.fragments.FragmentGifs
-import kotlinx.android.synthetic.main.gif_item.view.*
 
 class GifAdapter(private val context: Context):RecyclerView.Adapter<GifAdapter.GifViewHolder>() {
 
