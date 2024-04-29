@@ -26,7 +26,7 @@ class FragmentGifDetails : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val data:Data? = arguments?.getParcelable("gif")
+        val data : Data? = arguments?.getParcelable("gif")
 
         binding?.idTitleDetails?.text = data?.title
         binding?.idUsernameDetails?.text = data?.username

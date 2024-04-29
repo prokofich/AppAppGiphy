@@ -10,8 +10,8 @@ import com.example.appgiphy.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    var navController: NavController? = null
-    private var binding:ActivityMainBinding? = null
+    var navController : NavController? = null
+    private var binding : ActivityMainBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

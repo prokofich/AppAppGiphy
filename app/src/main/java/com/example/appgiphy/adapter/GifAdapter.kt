@@ -39,8 +39,8 @@ class GifAdapter(private val context: Context):RecyclerView.Adapter<GifAdapter.G
 
     @SuppressLint("NotifyDataSetChanged")
     fun setList(list:List<Data>?){
-        if(list!=null){
-            gifDataList = list
+        list?.let{
+            gifDataList = it
             notifyDataSetChanged()
         }
     }
@@ -51,6 +51,5 @@ class GifAdapter(private val context: Context):RecyclerView.Adapter<GifAdapter.G
             FragmentGifs.clickGif(gifDataList[holder.adapterPosition])
         }
     }
-
 
 }

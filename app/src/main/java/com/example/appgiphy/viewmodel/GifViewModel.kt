@@ -13,9 +13,9 @@ import retrofit2.Response
 class GifViewModel:ViewModel() {
 
     private val repository = Repository()
-    val gif :MutableLiveData<Response<GifItem>> = MutableLiveData()
+    val gif : MutableLiveData <Response <GifItem> > = MutableLiveData()
 
-    fun getGifs(q:String?){
+    fun getGifs(q : String?){
         viewModelScope.launch(Dispatchers.IO) {
             val responce = repository.getGifs(q)
             withContext(Dispatchers.Main){

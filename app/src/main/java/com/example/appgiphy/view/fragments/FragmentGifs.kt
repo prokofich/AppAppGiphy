@@ -17,9 +17,9 @@ import com.example.appgiphy.viewmodel.GifViewModel
 
 class FragmentGifs : Fragment() {
 
-    private var binding: FragmentGifsBinding? = null
-    private var recyclerView: RecyclerView? = null
-    private var adapter: GifAdapter? = null
+    private var binding : FragmentGifsBinding? = null
+    private var recyclerView : RecyclerView? = null
+    private var adapter : GifAdapter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -59,7 +59,7 @@ class FragmentGifs : Fragment() {
     }
 
     companion object{
-        fun clickGif(data: Data){
+        fun clickGif(data : Data) {
             val bundle = Bundle()
             bundle.putParcelable("gif",data)
             MAIN?.navController?.navigate(R.id.action_fragmentGifs_to_fragmentGifDetails,bundle)
